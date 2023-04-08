@@ -1,0 +1,130 @@
+// Custom theme variables
+
+// Font
+$commissioner: 'Commissioner', sans-serif;
+
+// Colors
+$orange: #ED7135;
+$dark: #292929;
+$gray-dark: #666666;
+$gray-normal: #EEEEEE;
+$gray-light: #EBEBEB;
+$dark-mode-text: #efefef;
+
+// Default variable overrides
+$font-family-base: $commissioner;
+$primary: $orange;
+$secondary: $gray-light;
+$link-color: $dark;
+$border-color: $gray-light;
+$card-border-color: $gray-light;
+$body-emphasis-color: $dark;
+$body-secondary-color: $gray-dark;
+$list-group-color: $body-secondary-color;
+
+$container-max-widths: (
+        xxl: 1150px
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../bootstrap-icons/font/bootstrap-icons.css";
+
+.card-body {
+  min-height: 152px;
+}
+
+.card-text {
+  min-height: 48px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.show-more {
+  display: none;
+}
+
+header .bi {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentcolor;
+}
+
+.theme-toggle .dropdown-item.active .bi {
+  display: block !important;
+}
+
+.btn-primary {
+  font-weight: bold;
+}
+
+.nav-underline {
+  .nav-link {
+    &:hover,
+    &:focus {
+      border-bottom-color: $primary;
+    }
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    border-bottom-color: $primary;
+  }
+}
+
+.nav-link:not(.active),
+.card-text {
+  color: $body-secondary-color;
+}
+
+.navbar-actions {
+  min-width: 250px;
+}
+
+.bg-search {
+  background: $gray-normal;
+}
+
+.toggle-cards {
+  max-width: 176px;
+}
+
+.btn-primary {
+  font-weight: bold;
+}
+
+.btn-secondary {
+  font-weight: bold;
+  color: $dark;
+}
+
+// styles for dark mode
+@include color-mode(dark) {
+  .list-group-item,
+  .nav-link:not(.active),
+  .card-title a,
+  .card-text,
+  .btn-secondary {
+    color: $dark-mode-text;
+  }
+
+  .toggle-cards {
+    input {
+      & + label {
+        color: $dark-mode-text;
+        background: $gray-dark;
+      }
+
+      &:hover + label {
+        background: $gray-dark;
+      }
+
+      &:checked + label {
+        background: $primary;
+        color: $dark-mode-text;
+      }
+    }
+  }
+}
